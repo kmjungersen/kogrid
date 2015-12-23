@@ -1,0 +1,31 @@
+.kogrid {
+    color: $text-color;
+
+    .kogrid-body {
+        .row {
+            padding: 1em;
+            background-color: $row-background;
+            border-bottom: 1px solid $row-border;
+
+            &:hover {
+                background-color: darken($row-background, 5%);
+                cursor: pointer
+            }
+
+            &:nth-child(even) {
+                background-color: $row-background-alt;
+
+                &:hover {
+                    background-color: darken($row-background-alt, 5%);
+                }
+            };
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+
+        }
+    }
+
+}
