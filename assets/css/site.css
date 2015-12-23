@@ -1,0 +1,17 @@
+.kogrid {
+  color: #444; }
+  .kogrid .kogrid-body .row {
+    padding: 1em;
+    background-color: #fff;
+    border-bottom: 1px solid #777; }
+    .kogrid .kogrid-body .row:hover {
+      background-color: #f2f2f2;
+      cursor: pointer; }
+    .kogrid .kogrid-body .row:nth-child(even) {
+      background-color: #ddd; }
+      .kogrid .kogrid-body .row:nth-child(even):hover {
+        background-color: #d0d0d0; }
+    .kogrid .kogrid-body .row:last-child {
+      border-bottom: none; }
+
+/*# sourceMappingURL=site.css.map */
