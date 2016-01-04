@@ -23,7 +23,7 @@ var sampleOptions = {
         {
             columnName: 'column1',
             width: 'col-xs-4',
-            sortable: true
+            sortable: false
         },{
             columnName: 'column2',
             width: 'col-xs-4',
@@ -31,13 +31,15 @@ var sampleOptions = {
         },{
             columnName: 'column3',
             width: 'col-xs-4',
-            sortable: true
+            sortable: true,
+            cssClass: 'blue-column',
+            align: 'center',
+            formatting: '{0:c2}'
         }
     ],
     width: '400px',
     height: '400px',
     data: ko.observableArray,
-    onClick: function(index, object){ }
 }
 
 var defaultOptions = {
@@ -79,9 +81,15 @@ var kogridConstants = {
     gridBody:
         '<div class="kogrid-body" data-bind="foreach: data">\
             <div class="row" data-bind="foreachprop: $data">\
-                <div class="col-xs-2">\
+                <div class="col-xs-6">\
                     <span data-bind="text: value"></span>\
                 </div>\
+            </div>\
+        </div>',
+    gridHeader:
+        '<div class="kogrid-header row" data-bind="foreach: headers">\
+            <div class="col-xs-6">\
+                <span data-bind="text: columnName"></span>\
             </div>\
         </div>',
     regexPercent: /(.*)\w+%/g,
@@ -113,10 +121,30 @@ var kogrid = (function(errorHandler, kogridConstants, defaultOptions){
             return null;
         }
 
+        _self.addGridHeader = function(element) {
+            element.append(_self.constants.gridHeader);
+            return element;
+        }
+
+        _self.setupColumnWidths = function(headers) {
+            var gridBody = $('.kogrid-body')
+            $.each(headers, function(i, header) {
+
+            });
+        }
+
+        _self.addGridBody = function(element) {
+            element.append(_self.constants.gridBody);
+            return element;
+        }
+
         _self.elementSetup = function(targetElement) {
             var element = $(targetElement);
 
-            element.append(_self.constants.gridBody);
+            _self.addGridHeader(element);
+            _self.addGridBody(element);
+
+            // element.append(_self.constants.gridBody);
 
             _self.applyDimension('width', _self.options.width, targetElement);
             _self.applyDimension('height', _self.options.height, targetElement);
