@@ -1,3 +1,7 @@
+.kogrid .kogrid-header {
+  border-bottom: 1px solid #257abf;
+  padding: 1em; }
+
 .kogrid {
   color: #444; }
   .kogrid .kogrid-body .row {
@@ -13,5 +17,7 @@
         background-color: #d0d0d0; }
     .kogrid .kogrid-body .row:last-child {
       border-bottom: none; }
+  .kogrid .row {
+    margin-right: 0; }
 
 /*# sourceMappingURL=site.css.map */
